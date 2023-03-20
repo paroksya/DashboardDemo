@@ -1,0 +1,146 @@
+.outer {
+  height: 100vh;
+  background: linear-gradient(to top, #c9c9ff 50%, #6e6ef6 90%)no-repeat;
+}
+
+.panel-heading {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#forget {
+  min-width: 100px;
+  margin-left: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.form-inline label {
+  padding-left: 10px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.btn {
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+.panel {
+  min-height: 380px;
+  box-shadow: 20px 20px 80px rgb(218, 218, 218);
+  border-radius: 12px;
+  margin-top: 70px;
+}
+
+.input-field {
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  color: #4343ff;
+}
+
+.input-field.error {
+  border: 1px solid red;
+  color: red;
+}
+
+input[type='text'],
+input[type='password'] {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+}
+
+.fa-eye-slash.btn {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+
+.bordert {
+  border-top: 1px solid #aaa;
+  position: relative;
+}
+
+.bordert:after {
+  content: "or connect with";
+  position: absolute;
+  top: -13px;
+  left: 33%;
+  background-color: #fff;
+  padding: 0 8px;
+}
+
+
+.google-sign-in {
+  background-color: white;
+  border: 0px solid #D8DDEC;
+  padding: 10px 30px;
+  text-align: center;
+  font-weight: bold;
+  height: 100%;
+}
+
+.google-sign-in img {
+  justify-content: center;
+  /* float: right; */
+}
+
+.google-sign-in span {
+  vertical-align: middle;
+}
+
+body {
+  background-color: #E5E5E5;
+}
+
+.container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.custom-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  width: 400px;
+}
+
+.horizontal-line-text {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #D8DDEC;
+  line-height: 0.1rem;
+  margin: 25px 0 30px 0;
+}
+
+.horizontal-line-text span {
+  background: white;
+  padding: 0 10px;
+}
+
+.user-avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
