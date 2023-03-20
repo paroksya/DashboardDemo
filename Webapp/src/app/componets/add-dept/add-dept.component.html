@@ -1,0 +1,38 @@
+<br /><br />
+<section class="content" style="align-items: center;margin-left: 110px;">
+  <div class="parent">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 *ngIf="!editMode">Add Department Data</h3>
+              <h3 *ngIf="editMode">Update Department Data</h3>
+            </div>
+            <form [formGroup]="deptForm" (ngSubmit)="onSubmit($event)">
+              <div class="card-body">
+                <input type="hidden" formControlName="departmentId" />
+                <div class="form-group">
+                  <label for="departmentName">Department Name</label>
+                  <input class="form-control" placeholder="Enter Department Name" value=""
+                    formControlName="departmentName" [ngClass]="{'is-invalid':submitted && f.departmentName.errors}" />
+                  <div *ngIf="submitted && f.departmentName.errors" class="invalid-feedback" style="color:red">
+                    <div *ngIf="f.departmentName.errors.required">Name is required</div>
+                  </div>
+                </div>
+                <br />
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info">{{editMode ? 'Update User' : 'Add User'}}</button>
+                </div>
+                <br />
+                <br /><br />
+              </div>
+            </form>
+            <br />
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

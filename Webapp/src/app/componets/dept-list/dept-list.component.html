@@ -1,0 +1,43 @@
+<br /><br />
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3>Department List</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <div fxLayout fxLayoutAlign="center center">
+              </div>
+            </div>
+            <table class="table table-striped table-bordered table-sm row-border hover" id="depTable">
+              <thead>
+                <tr>
+                  <th>Department Name</th>
+                  <th
+                    *ngIf="this.isButtonVisible || this.isEditButtonVisible || isSubAdminButtonVisible || isSubAdminEditButtonVisible">
+                    Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let dept of departments">
+                  <td>{{dept.departmentName}}</td>
+                  <td
+                    *ngIf="this.isButtonVisible || this.isEditButtonVisible || isSubAdminButtonVisible || isSubAdminEditButtonVisible">
+                    <a type="button" *ngIf="this.isEditButtonVisible || isSubAdminEditButtonVisible"
+                      (click)="onEdit(dept.departmentId)"><i class="fas fa-edit" style="color:#007bff"></i></a>
+                    <a type="button" *ngIf="this.isButtonVisible || isSubAdminButtonVisible"
+                      (click)="deleteDeptData(dept.departmentId)" class="btn btn-sm btndel"><i class="fas fa-trash"
+                        style="color:rgb(175, 39, 39);"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

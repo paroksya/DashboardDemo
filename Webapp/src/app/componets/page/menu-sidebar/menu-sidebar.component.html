@@ -1,0 +1,88 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <div class="sidebar">
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="assets/img/AdminLTELogo.png" class="img-circle elevation-2" alt="User Image">
+      </div>
+      <div class="info">
+        <a href="#" class="d-block">Dhvani Soni</a>
+      </div>
+    </div>
+
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item" *ngIf="isForAdmin">
+          <a class="nav-link" [routerLink]="['user']">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              UserManager
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="isForAdmin">
+          <a class="nav-link" [routerLink]="['roles']">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              RoleManager
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item menu-is-opening menu-open" *ngIf="isForAdmin">
+          <a class="nav-link">
+            <i class="nav-icon fas fa-atlas"></i>
+            <p>
+              Department
+              <i class="right fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview" *ngIf="isAdminButtonVisible || isSuperAdminButtonVisible">
+            <li class="nav-item">
+              <a [routerLink]="['department']" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>Department List</p>
+              </a>
+            </li>
+
+          </ul>
+          <ul class="nav nav-treeview" *ngIf="isAdminEditButtonVisible || isSuperAdminEditButtonVisible">
+            <li class="nav-item">
+              <a [routerLink]="['department/addDept']" class="nav-link">
+                <i class="fas fa-plus-square nav-icon"></i>
+                <p>Add Department</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="nav-item menu-is-opening menu-open" *ngIf="isForUser">
+          <a class="nav-link">
+            <i class="nav-icon fas fa-atlas"></i>
+            <p>
+              Employee
+              <i class="right fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview" *ngIf="isUserButtonVisible">
+            <li class="nav-item" *ngIf="isForUser">
+              <a [routerLink]="['employee']" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>Employee List</p>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav nav-treeview" *ngIf="isUserEditButtonVisible">
+            <li class="nav-item" *ngIf="isForUser">
+              <a [routerLink]="['employee/addEmp']" class="nav-link">
+                <i class="fas fa-plus-square nav-icon"></i>
+                <p>Add Employee</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>

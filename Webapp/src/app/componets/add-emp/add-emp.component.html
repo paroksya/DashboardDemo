@@ -1,0 +1,81 @@
+<br /><br />
+<section class="content">
+  <div class="parent">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 *ngIf="!editMode">Add Employee Data</h3>
+              <h3 *ngIf="editMode">Update Employee Data</h3>
+            </div>
+            <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+              <div class="card-body">
+                <div class="form-row">
+                  <input type="hidden" formControlName="employeeID" />
+                  <div class="form-group col">
+                    <label for="employeeName">Employee Name</label>
+                    <input class="form-control" placeholder="Enter Employee Name" value=""
+                      formControlName="employeeName" [ngClass]="{'is-invalid':submitted && f.employeeName.errors}" />
+                    <div *ngIf="submitted && f.employeeName.errors" class="invalid-feedback" style="color:red">
+                      <div *ngIf="f.employeeName.errors.required">Name is required</div>
+                      <div *ngIf="f.employeeName.errors.pattern">Only Alphabets Allowed</div>
+                    </div>
+                  </div>
+
+                  <div class="col">
+                    <label for="emailId">Email</label>
+                    <input class="form-control" placeholder="Enter Email" value="" formControlName="emailId"
+                      [ngClass]="{'is-invalid':submitted && f.emailId.errors}" />
+                    <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback" style="color:red">
+                      <div *ngIf="f.emailId.errors.required">Email is required</div>
+                      <div *ngIf="f.emailId.errors.pattern">Invalid EmailId</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col">
+                    <label for="exampleInputPassword1">Department</label><br>
+                    <select placeholder="Select Department" class="form-control" formControlName="department"
+                      [ngClass]="{'is-invalid':submitted && f.department.errors}">
+                      <option value="" [disabled]="true">Select Department</option>
+                      <option *ngFor="let dept of deptList" value="{{dept.departmentId}}">
+                        {{dept.departmentName}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.department.errors" class="invalid-feedback" style="color:red">
+                      <div *ngIf="f.department.errors.required">Department is required</div>
+                    </div>
+                  </div>
+
+                  <div class="col">
+                    <label for="doj">Date</label>
+                    <input class="form-control" type="date" (change)="doj" placeholder="" value="" [(ngModel)]="newdate"
+                      formControlName="doj" [ngClass]="{'is-invalid':submitted && f.doj.errors}" />
+                    <div *ngIf="submitted && f.doj.errors" class="invalid-feedback" style="color:red">
+                      <div *ngIf="f.doj.errors.required">Date is required</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelectImage($event)">
+                  <ngx-dropzone-label>
+                    <div class="spinner-loader" role="status">
+                      <h2 *ngIf="Imagefiles.length == 0">Upload Image</h2>
+                    </div>
+                  </ngx-dropzone-label>
+                  <ngx-dropzone-image-preview [src]="imageToShow" ngProjectAs="ngx-dropzone-preview"
+                    *ngFor="let f of Imagefiles" [file]="f" [removable]="true" (removed)="onRemoveImage(f)">
+                  </ngx-dropzone-image-preview>
+                </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info">{{editMode ? 'Update User' : 'Add User'}}</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
